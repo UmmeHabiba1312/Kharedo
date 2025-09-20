@@ -101,7 +101,7 @@ export default function Chatbot() {
     setLoading(true)
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/chat/start", {
+      const res = await fetch("https://kharedo-api-production.up.railway.app/chat/start", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: [{ role: "user", content: text }] }),

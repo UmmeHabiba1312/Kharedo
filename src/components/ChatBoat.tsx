@@ -66,7 +66,7 @@ export default function Chatbot() {
 
   // ✅ webhook listener
   useEffect(() => {
-    const evtSource = new EventSource("http://127.0.0.1:9015/webhook")
+    const evtSource = new EventSource("https://kharedo-api-production.up.railway.app/webhook")
     evtSource.onmessage = (event) => {
       const data = JSON.parse(event.data)
       if (data.action === "show_categories") {
@@ -101,6 +101,7 @@ export default function Chatbot() {
     setLoading(true)
 
     try {
+      // https://kharedo-api-production.up.railway.app/chat/start
       const res = await fetch("https://kharedo-api-production.up.railway.app/chat/start", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

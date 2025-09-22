@@ -66,7 +66,7 @@ export default function HeroUltra() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden pt-20">
+    <section className="relative overflow-hidden pt-20 mx-auto max-w-screen-2xl">
       {/* Top blend for big headers */}
       <div className="pointer-events-none mt-20 absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black/20 to-transparent dark:from-black/40 z-10" />
 

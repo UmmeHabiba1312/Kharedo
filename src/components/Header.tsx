@@ -918,7 +918,7 @@ export default function Header() {
   const items = useMemo(() => Object.values(cartDetails ?? {}), [cartDetails]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 text-black">
+    <header className="fixed inset-x-0 top-0 z-50 text-black mx-auto max-w-screen-2xl">
       {/* Top Info Bar */}
       <div className="hidden md:block bg-black text-white text-sm">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">

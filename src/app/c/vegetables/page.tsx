@@ -19,7 +19,7 @@ const vegetables = [
 
 export default function VegetablesPage() {
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="mx-auto max-w-screen-2xl py-12 bg-gray-50">
       {/* Hero Section */}
       <div className="relative bg-green-100 rounded-2xl overflow-hidden mb-10">
         <div className="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center gap-6">

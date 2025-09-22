@@ -79,7 +79,7 @@ export default function OrdersPage() {
   }, [filter, search]);
 
   return (
-    <div className="max-w-7xl mx-auto p-4 md:p-8 text-black">
+    <div className="mx-auto max-w-screen-2xl p-4 md:p-8 text-black">
       <h1 className="text-3xl font-bold mb-6">My Orders</h1>
 
       {/* Search & Filter */}

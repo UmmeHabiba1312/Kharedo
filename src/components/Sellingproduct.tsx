@@ -61,7 +61,7 @@ export default function FeaturedProducts() {
       : products.filter((p) => p.category === activeCategory);
 
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="mx-auto max-w-screen-2xl py-12 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">

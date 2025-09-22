@@ -330,7 +330,7 @@ export default function MobilesCategoryPage() {
 // ---------- Hero ----------
 function Hero() {
   return (
-    <section className="relative overflow-hidden">
+    <section className="mx-auto max-w-screen-2xl relative overflow-hidden">
   <div className="absolute inset-0 -z-10">
     {/* Background image */}
     <Image

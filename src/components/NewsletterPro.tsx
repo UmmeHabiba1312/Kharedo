@@ -82,7 +82,7 @@ export default function NewsletterPro({
       aria-label="Newsletter signup"
     >
       {/* Background gradient accents */}
-      <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-rose-500/10 blur-2xl" />
+      <div className=" mx-auto max-w-screen-2xl pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-rose-500/10 blur-2xl" />
       <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-indigo-500/10 blur-2xl" />
 
       <div className="relative grid gap-8 p-6 md:p-10 md:grid-cols-2">

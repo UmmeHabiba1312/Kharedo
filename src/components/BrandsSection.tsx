@@ -44,7 +44,7 @@ const collections = [
 
 export default function CollectionsSection() {
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-50 mx-auto max-w-screen-2xl">
       <div className="max-w-7xl mx-auto px-4">
         {/* Heading */}
         <motion.h2

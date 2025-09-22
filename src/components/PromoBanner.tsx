@@ -35,7 +35,7 @@ export default function PromoBanner() {
   }, []);
 
   return (
-    <section className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
+    <section className=" mx-auto max-w-screen-2xl relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
       {/* Background Image */}
       <Image
         src="/banner1.jpg"

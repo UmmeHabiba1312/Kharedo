@@ -50,7 +50,7 @@ export default function AccountSettingsPro() {
   const [activeTab, setActiveTab] = useState("Profile");
 
   return (
-    <div className="min-h-screen text-black bg-gray-50 py-10 px-4 md:px-8 mt-32">
+    <div className="mx-auto max-w-screen-2xl min-h-screen text-black bg-gray-50 py-10 px-4 md:px-8 mt-32">
       <div className="max-w-7xl mx-auto bg-white shadow-lg rounded-2xl overflow-hidden md:flex">
         {/* Sidebar */}
         <aside className="md:w-72 border-r border-gray-200 bg-gray-100 p-6">

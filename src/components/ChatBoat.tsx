@@ -170,7 +170,7 @@ export default function Chatbot() {
 
   // ✅ Final single return (pehle 2 return the, ab sirf ek hai)
   return (
-    <div>
+    <div className='mx-auto max-w-screen-2xl'>
       {/* Floating Button */}
       <div className='fixed bottom-6 right-6 z-[60]'>
         <AnimatePresence>

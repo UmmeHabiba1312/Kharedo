@@ -37,7 +37,7 @@ const newArrivals = [
 
 export default function NewArrivals() {
   return (
-    <section className="py-12 bg-white">
+    <section className="py-12 bg-white mx-auto max-w-screen-2xl">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">

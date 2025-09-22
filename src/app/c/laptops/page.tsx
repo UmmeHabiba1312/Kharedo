@@ -143,7 +143,7 @@ const item = {
 // ---------- Main Page ----------
 export default function LaptopsCategoryPage() {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="mx-auto max-w-screen-2xl min-h-screen bg-gray-50">
       <Hero />
 
       <Section

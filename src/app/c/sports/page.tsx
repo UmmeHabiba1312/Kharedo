@@ -49,7 +49,7 @@ const categories = [
 
 export default function SportsPage() {
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="mx-auto max-w-screen-2xl py-12 bg-gray-50">
       {/* Hero */}
       <div className="container mx-auto px-4 mb-12">
         <div className="bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-2xl p-8 text-center">

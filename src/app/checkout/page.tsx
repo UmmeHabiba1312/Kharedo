@@ -96,7 +96,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <main className="min-h-screen bg-white text-black mt-20">
+    <main className="mx-auto max-w-screen-2xl min-h-screen bg-white text-black mt-20">
       {/* Top breadcrumb / banner */}
       <section className="border-b">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center gap-2 text-sm">

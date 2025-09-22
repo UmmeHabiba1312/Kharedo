@@ -36,7 +36,7 @@ export default function CheckoutPage() {
   const total = subtotal + shipping;
 
   return (
-    <div className="max-w-7xl bg-white mx-auto p-4 md:p-8 text-black mt-32">
+    <div className="mx-auto max-w-screen-2xl bg-white  p-4 md:p-8 text-black mt-32">
       <h1 className="text-3xl font-bold mb-6">Checkout</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

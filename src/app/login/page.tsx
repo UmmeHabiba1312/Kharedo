@@ -34,7 +34,7 @@ export default function ExpertLoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row mt-32">
+    <div className="mx-auto max-w-screen-2xl min-h-screen flex flex-col lg:flex-row mt-32">
       {/* Left Column: Login Form */}
       <motion.div
         initial={{ x: -50, opacity: 0 }}

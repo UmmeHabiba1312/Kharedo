@@ -60,7 +60,7 @@ const categories = [
 
 export default function BeautyPage() {
   return (
-    <div className="w-full bg-gray-50">
+    <div className="mx-auto max-w-screen-2xl w-full bg-gray-50">
       {/* Hero Section */}
       <section className="relative w-full h-64 bg-gradient-to-r from-pink-500 to-rose-600 flex items-center justify-center text-center text-white">
         <div>

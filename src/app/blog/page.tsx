@@ -41,7 +41,7 @@ const blogs = [
 
 export default function BlogSection() {
   return (
-    <section  className="py-20 bg-white">
+    <section  className="mx-auto max-w-screen-2xl py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         {/* Heading */}
         <div className="text-center mb-12">

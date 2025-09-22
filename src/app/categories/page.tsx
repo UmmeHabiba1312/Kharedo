@@ -28,7 +28,7 @@ export default function CategoriesPage() {
   );
 
   return (
-    <div className="max-w-[1400px] mx-auto px-6 py-12 mt-32">
+    <div className="mx-auto max-w-screen-2xl lg:max-w-[1400px] px-6 py-12 mt-32">
       {/* Hero Section */}
       <motion.div
         initial={{ opacity: 0, y: -40 }}

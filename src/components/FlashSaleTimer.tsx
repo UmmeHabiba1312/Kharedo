@@ -30,7 +30,7 @@ export default function FlashSaleTimer() {
   if (!mounted) return null; // ❌ Do not render on server
 
   return (
-    <div className="flex items-center gap-2 font-mono text-lg font-semibold bg-yellow-500 text-white px-4 py-2 rounded-lg">
+    <div className="mx-auto max-w-screen-2xl flex items-center gap-2 font-mono text-lg font-semibold bg-yellow-500 text-white px-4 py-2 rounded-lg">
       <span>{String(timeLeft.hours).padStart(2, "0")}</span>:
       <span>{String(timeLeft.minutes).padStart(2, "0")}</span>:
       <span>{String(timeLeft.seconds).padStart(2, "0")}</span>

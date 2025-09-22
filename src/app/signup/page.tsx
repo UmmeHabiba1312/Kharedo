@@ -40,7 +40,7 @@ export default function ExpertSignupPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row mt-32 bg-white">
+    <div className="mx-auto max-w-screen-2xl min-h-screen flex flex-col lg:flex-row mt-32 bg-white">
       {/* Left Column: Signup Form */}
       <motion.div
         initial={{ x: -50, opacity: 0 }}

@@ -60,7 +60,7 @@ const categories = [
 
 export default function MensFashionPage() {
   return (
-    <div className="w-full bg-gray-50 mt-24">
+    <div className="mx-auto max-w-screen-2xl w-full bg-gray-50 mt-24">
 
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 py-20 flex flex-col lg:flex-row items-center gap-10">

@@ -91,7 +91,7 @@ export default function FlashSale() {
   const { addItem } = useShoppingCart();
 
   return (
-    <section className="py-12 bg-white dark:bg-neutral-950">
+    <section className="py-12 bg-white dark:bg-neutral-950 mx-auto max-w-screen-2xl">
       <div className="container mx-auto px-4">
         {/* Heading */}
         <div className="flex justify-between items-center mb-8">

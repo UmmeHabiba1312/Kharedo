@@ -54,7 +54,7 @@ const SOCIAL = [
 
 export default function FooterPro() {
   return (
-    <footer className="mt-16 border-t bg-white dark:bg-neutral-950">
+    <footer className="mx-auto max-w-screen-2xl mt-16 border-t bg-white dark:bg-neutral-950">
       {/* Trust bar */}
       <div className="border-b bg-gray-50/60 dark:bg-neutral-900">
         <div className="container mx-auto px-4">

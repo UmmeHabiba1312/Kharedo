@@ -52,7 +52,7 @@ const categories = [
 
 export default function HomeKitchenPage() {
   return (
-    <main className="mt-40 bg-white">
+    <main className="mt-40 bg-white mx-auto max-w-screen-2xl">
       <div className="w-full bg-gray-50 ">
 
       {/* Hero Section */}

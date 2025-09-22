@@ -63,7 +63,7 @@ const shipFee = merchandise >= FREE_SHIP_THRESHOLD
   }
 
   return (
-    <main className="min-h-screen bg-white text-black mt-20">
+    <main className="mx-auto max-w-screen-2xl min-h-screen bg-white text-black mt-20">
       {/* Breadcrumb */}
       <section className="border-b">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center gap-2 text-sm">

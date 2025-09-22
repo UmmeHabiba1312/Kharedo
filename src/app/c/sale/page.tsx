@@ -70,7 +70,7 @@ const categories = [
 
 export default function SalePageExpert() {
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="mx-auto max-w-screen-2xl py-12 bg-gray-50">
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-red-200 via-pink-100 to-yellow-100 rounded-3xl overflow-hidden mb-12">
         <div className="container mx-auto px-6 py-16 flex flex-col md:flex-row items-center gap-8">

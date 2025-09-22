@@ -93,54 +93,55 @@ export default function Chatbot() {
   }
 
   async function handleSend(raw?: string) {
-    const text = (raw ?? input).trim()
-    if (!text) return
+  const text = (raw ?? input).trim()
+  if (!text) return
 
-    pushMessage({ id: `u_${Date.now()}`, role: "user", text })
-    setInput("")
-    setLoading(true)
+  pushMessage({ id: `u_${Date.now()}`, role: "user", text })
+  setInput("")
+  setLoading(true)
 
-    try {
-      // https://kharedo-api-production.up.railway.app/chat/start
-     const res = await fetch("https://kharedo-api.vercel.app/chat/start", {
+  try {
+    const res = await fetch("https://kharedo-api.vercel.app/chat/start", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages: [{ role: "user", content: text }] }),
+      body: JSON.stringify({
+        messages: [{ role: "user", content: text }], // ✅ FIXED
+      }),
     })
 
+    if (!res.ok) throw new Error("Network error")
+    const data = await res.json()
 
-      if (!res.ok) throw new Error("Network error")
-      const data = await res.json()
-
-      if (data.response) {
-        const msg = data.response.toLowerCase()
-        if (msg.includes("categories")) {
-          router.push("/categories")
-        }
-        pushMessage({
-          id: `b_${Date.now()}`,
-          role: "bot",
-          text: data.response,
-        })
-      } else {
-        pushMessage({
-          id: `b_${Date.now()}`,
-          role: "bot",
-          text: "⚠️ Sorry, no response.",
-        })
+    if (data.response) {
+      const msg = data.response.toLowerCase()
+      if (msg.includes("categories")) {
+        router.push("/categories")
       }
-    } catch (err) {
-      console.error("Chat API error:", err);
       pushMessage({
-        id: `b_err_${Date.now()}`,
+        id: `b_${Date.now()}`,
         role: "bot",
-        text: "⚠️ Something went wrong. Try again.",
+        text: data.response,
       })
-    } finally {
-      setLoading(false)
-      focusInput()
+    } else {
+      pushMessage({
+        id: `b_${Date.now()}`,
+        role: "bot",
+        text: "⚠️ Sorry, no response.",
+      })
     }
+  } catch (err) {
+    console.error("Chat API error:", err)
+    pushMessage({
+      id: `b_err_${Date.now()}`,
+      role: "bot",
+      text: "⚠️ Something went wrong. Try again.",
+    })
+  } finally {
+    setLoading(false)
+    focusInput()
   }
+}
+
 
   function handleSuggestion(s: string) {
     handleSend(s)

@@ -66,7 +66,7 @@ export default function Chatbot() {
 
   // ✅ webhook listener
   useEffect(() => {
-    const evtSource = new EventSource("https://kharedo-api-production.up.railway.app/webhook")
+    const evtSource = new EventSource("https://kharedo-api.vercel.app/webhook")
     evtSource.onmessage = (event) => {
       const data = JSON.parse(event.data)
       if (data.action === "show_categories") {
@@ -102,7 +102,7 @@ export default function Chatbot() {
 
     try {
       // https://kharedo-api-production.up.railway.app/chat/start
-      const res = await fetch("https://kharedo-api-production.up.railway.app/chat/start", {
+      const res = await fetch("https://kharedo-api.vercel.app/chat/start", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: [{ role: "user", content: text }] }),

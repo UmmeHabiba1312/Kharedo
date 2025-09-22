@@ -102,11 +102,12 @@ export default function Chatbot() {
 
     try {
       // https://kharedo-api-production.up.railway.app/chat/start
-      const res = await fetch("https://kharedo-api.vercel.app/chat/start", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: [{ role: "user", content: text }] }),
-      })
+     const res = await fetch("https://kharedo-api.vercel.app/chat/start", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages: [{ role: "user", content: text }] }),
+    })
+
 
       if (!res.ok) throw new Error("Network error")
       const data = await res.json()

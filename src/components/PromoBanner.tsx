@@ -2,109 +2,143 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Timer } from "lucide-react";
+import Link from "next/link";
+import { Timer, Sparkles, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
+type TimeLeft = {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+};
+
 export default function PromoBanner() {
-  // Countdown state (optional)
-  const calculateTimeLeft = () => {
-    const target = new Date("2025-09-01T23:59:59"); // Seasonal Sale end date
-    const difference = +target - +new Date();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let timeLeft: any = {};
+  const calculateTimeLeft = (): TimeLeft | null => {
+    // Change this date whenever you launch a new campaign
+    const target = new Date("2026-12-31T23:59:59");
+    const difference = target.getTime() - Date.now();
 
-    if (difference > 0) {
-      timeLeft = {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
-      };
-    }
+    if (difference <= 0) return null;
 
-    return timeLeft;
+    return {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / (1000 * 60)) % 60),
+      seconds: Math.floor((difference / 1000) % 60),
+    };
   };
 
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(
+    calculateTimeLeft()
+  );
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const interval = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
-    return () => clearInterval(timer);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className=" mx-auto max-w-screen-2xl relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
-      {/* Background Image */}
+    <section className="relative h-[500px] overflow-hidden rounded-3xl">
+      {/* Background */}
       <Image
-        src="/banner1.jpg"
-        alt="Seasonal Sale"
+        src="/assets/promo-banner.jpg"
+        alt="Kharedo Mega Sale"
         fill
-        className="object-cover"
         priority
+        className="object-cover"
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/30" />
+
+      {/* Decorative Blur */}
+      <div className="absolute -left-20 top-20 h-64 w-64 rounded-full bg-yellow-500/20 blur-3xl" />
+      <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-orange-500/20 blur-3xl" />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-4">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-5 inline-flex items-center gap-2 rounded-full border border-yellow-400/40 bg-yellow-500/20 px-5 py-2 backdrop-blur-md"
+        >
+          <Sparkles className="h-4 w-4 text-yellow-300" />
+          <span className="text-sm font-semibold tracking-wide">
+            LIMITED TIME OFFER
+          </span>
+        </motion.div>
+
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-3xl md:text-5xl font-extrabold drop-shadow-lg"
+          className="max-w-4xl text-4xl font-extrabold leading-tight md:text-6xl"
         >
-          Mega Seasonal Sale  
+          Kharedo Mega Seasonal Sale
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="mt-4 text-lg md:text-xl max-w-2xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="mt-5 max-w-2xl text-lg text-gray-200 md:text-xl"
         >
-          Up to <span className="text-yellow-400 font-bold">70% OFF</span> on top categories. Don’t miss out!
+          Save up to
+          <span className="mx-2 font-bold text-yellow-400">
+            70% OFF
+          </span>
+          on Electronics, Fashion, Home Essentials and much more.
         </motion.p>
 
-        {/* Countdown */}
-        {timeLeft?.days !== undefined && (
+        {timeLeft && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="mt-6 flex items-center gap-4 bg-white/10 backdrop-blur-md px-6 py-3 rounded-xl"
+            className="mt-8 flex flex-wrap items-center justify-center gap-4 rounded-2xl border border-white/10 bg-white/10 px-8 py-5 backdrop-blur-xl"
           >
-            <Timer className="w-5 h-5 text-yellow-400" />
-            <div className="flex gap-4 text-sm md:text-base font-semibold">
-              <span>{timeLeft.days}d</span>
-              <span>{timeLeft.hours}h</span>
-              <span>{timeLeft.minutes}m</span>
-              <span>{timeLeft.seconds}s</span>
-            </div>
+            <Timer className="h-5 w-5 text-yellow-400" />
+
+            {[
+              { label: "Days", value: timeLeft.days },
+              { label: "Hours", value: timeLeft.hours },
+              { label: "Minutes", value: timeLeft.minutes },
+              { label: "Seconds", value: timeLeft.seconds },
+            ].map((item) => (
+              <div key={item.label} className="text-center">
+                <p className="text-2xl font-bold">{item.value}</p>
+                <span className="text-xs uppercase tracking-wider text-gray-300">
+                  {item.label}
+                </span>
+              </div>
+            ))}
           </motion.div>
         )}
 
-        {/* CTA Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-          className="mt-8 flex gap-4"
+          transition={{ delay: 0.8 }}
+          className="mt-10 flex flex-wrap justify-center gap-4"
         >
-          <a
+          <Link
             href="/sale"
-            className="px-6 py-3 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold rounded-lg shadow-lg transition"
+            className="inline-flex items-center gap-2 rounded-xl bg-yellow-500 px-8 py-4 font-semibold text-black transition hover:bg-yellow-400"
           >
             Shop Now
-          </a>
-          <a
+            <ArrowRight size={18} />
+          </Link>
+
+          <Link
             href="/categories"
-            className="px-6 py-3 bg-white text-gray-800 font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition"
+            className="rounded-xl border border-white/30 bg-white/10 px-8 py-4 font-semibold backdrop-blur-md transition hover:bg-white hover:text-black"
           >
-            Explore Categories
-          </a>
+            Browse Categories
+          </Link>
         </motion.div>
       </div>
     </section>
